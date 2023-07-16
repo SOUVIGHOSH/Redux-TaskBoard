@@ -2,7 +2,11 @@ export default function task_reducer(
   state = { tasks: [], task_popup: false, selected_task: {} },
   action
 ) {
-  if (action.type === "CREATE_TASK") {
+  console.log(action);
+  if (action.type === "FECTH_TASK_SUCCEDED") {
+    state = { ...state, tasks: action.payload };
+  }
+  if (action.type === "CREATE_TASK_SUCCEDED") {
     state = { ...state, tasks: [...state.tasks, action.payload] };
   }
   if (action.type === "ENABLE_POPUP") {

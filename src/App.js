@@ -2,8 +2,12 @@ import "./App.css";
 import Task from "./page/task-page";
 import { connect } from "react-redux";
 import TaskForm from "./page/task-form";
+import React from "react";
+import { fetchTask } from "./action";
 
 function App(props) {
+  React.useEffect(() => props.dispatch(fetchTask()), []);
+  console.log(props);
   return (
     <div className="app-main">
       <h1>Development Project TaskBoard</h1>

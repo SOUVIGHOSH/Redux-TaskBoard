@@ -5,11 +5,22 @@ import App from "./App";
 import reportWebVitals from "./reportWebVitals";
 import { BrowserRouter } from "react-router-dom";
 import { Provider } from "react-redux";
-import { createStore } from "redux";
+import { applyMiddleware, createStore } from "redux";
 import task_reducer from "./reducer";
+import { composeWithDevTools } from "redux-devtools-extension";
+import thunk from "redux-thunk";
 
 const root = ReactDOM.createRoot(document.getElementById("root"));
-const store = createStore(task_reducer);
+
+// const rootRecuder = function (state = {}, action) {
+//   return {
+//     tasks: task_reducer(state, action),
+//   };
+// };
+const store = createStore(
+  task_reducer,
+  composeWithDevTools(applyMiddleware(thunk))
+);
 root.render(
   <React.StrictMode>
     <BrowserRouter>

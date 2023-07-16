@@ -3,6 +3,7 @@ import "./task-page.css";
 import { enableTaskPopup, setTask, disableTaskPopup } from "../action";
 
 const Task = (props) => {
+  console.log(props);
   const status = ["Unstarted", "Inprogress", "Completed"];
 
   const openDialogHandler = () => {
